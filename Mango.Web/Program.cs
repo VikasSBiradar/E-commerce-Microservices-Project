@@ -12,9 +12,12 @@ namespace Mango.Web
             builder.Services.AddHttpContextAccessor();
             builder.Services.AddHttpClient();
             builder.Services.AddHttpClient<ICouponService, CouponService>();
+            builder.Services.AddHttpClient<IAuthService, AuthService>();
             builder.Services.AddScoped<ICouponService, CouponService>();
+            builder.Services.AddScoped<IAuthService, AuthService>();
             builder.Services.AddScoped<IBaseService, BaseService>();
             StaticDetails.CouponAPIBase = builder.Configuration["ServiceURLs:CouponAPI"];
+            StaticDetails.AuthAPIBase = builder.Configuration["ServiceURLs:AuthAPI"];
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
