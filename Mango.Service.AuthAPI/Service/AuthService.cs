@@ -27,7 +27,7 @@ namespace Mango.Services.AuthAPI.Service
 
             bool isValid = await _userManager.CheckPasswordAsync(user,requestDTO.Password);
 
-            if(user == null && isValid == false)
+            if(user == null || isValid == false)
             {
                 return new LoginResponseDTO() { User = null, Token =""};
             }
@@ -39,8 +39,8 @@ namespace Mango.Services.AuthAPI.Service
                 Name = user.Name,
                 PhoneNumber = user.PhoneNumber
             };
-
-            var token = _jwtTokenGenerator.GenerateToken(user);
+            var roles = await _userManager.GetRolesAsync(user);
+            var token = _jwtTokenGenerator.GenerateToken(user,roles);
 
             LoginResponseDTO loginResponseDTO = new LoginResponseDTO()
             {

@@ -47,10 +47,14 @@
                                 <a class="nav-link text-white" asp-area="" asp-controller="Auth" asp-action="Register">Register</a>
                             </li>
                         }
-                        else{
-                        <li class="nav-item ">
-                            <a class="nav-link text-white" asp-area="" asp-controller="Auth" asp-action="Logout">Logout</a>
-                        </li>
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-white" href="#">Hello, @User.Identity.Name</a>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link text-white" asp-area="" asp-controller="Auth" asp-action="Logout">Logout</a>
+                            </li>
                         }
                         
                     </ul>

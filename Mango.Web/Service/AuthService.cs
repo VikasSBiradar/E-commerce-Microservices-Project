@@ -19,7 +19,7 @@ namespace Mango.Web.Service
                 ApiType = StaticDetails.ApiType.POST,
                 Data = registrationRequestDTO,
                 URL = StaticDetails.AuthAPIBase + "/api/auth/AssignRole"
-            });
+            },withBearer:false);
         }
 
         public async Task<ResponseDTO?> LoginAsync(LoginRequestDTO loginRequestDTO)
@@ -29,7 +29,7 @@ namespace Mango.Web.Service
                 ApiType = StaticDetails.ApiType.POST,
                 Data = loginRequestDTO,
                 URL = StaticDetails.AuthAPIBase + "/api/auth/login"
-            });
+            }, withBearer: false);
         }
 
         public async Task<ResponseDTO?> RegisterAsync(RegistrationRequestDTO registrationRequestDTO)
@@ -39,7 +39,7 @@ namespace Mango.Web.Service
                 ApiType = StaticDetails.ApiType.POST,
                 Data = registrationRequestDTO,
                 URL = StaticDetails.AuthAPIBase + "/api/auth/register"
-            });
+            }, withBearer: false);
         }
     }
 }
